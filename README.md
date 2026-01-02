@@ -79,7 +79,7 @@ The application is built to deliver real-time insights and seamless user experie
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open https://fin-verse-7raj.vercel.app/ with your browser to see the result.
 
 ## License
 
