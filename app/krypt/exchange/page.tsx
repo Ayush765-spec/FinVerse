@@ -92,7 +92,10 @@ const CryptoChart = ({ coinId }: { coinId: string }) => {
                             contentStyle={{ backgroundColor: '#111', border: '1px solid #333', borderRadius: '8px' }}
                             itemStyle={{ color: '#2952e3' }}
                             labelStyle={{ color: '#aaa' }}
-                            formatter={(value: number) => [`$${value.toLocaleString()}`, 'Price']}
+                            formatter={(value: number | undefined) => [
+                                value ? `$${value.toLocaleString()}` : '',
+                                'Price'
+                            ]}
                         />
                         <Area
                             type="monotone"
