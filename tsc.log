@@ -1,0 +1,4 @@
+app/(auth)/sign-up/page.tsx(83,21): error TS2322: Type 'FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined' is not assignable to type 'FieldError | undefined'.
+  Property 'type' is missing in type 'Merge<FieldError, FieldErrorsImpl<any>>' but required in type 'FieldError'.
+lib/actions/finnhub.actions.ts(122,57): error TS2558: Expected 0 type arguments, but got 1.
+lib/actions/finnhub.actions.ts(152,42): error TS2558: Expected 0 type arguments, but got 1.

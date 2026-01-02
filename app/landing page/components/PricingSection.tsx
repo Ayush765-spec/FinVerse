@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Icon from '@/components/ui/AppIcon';
 
 interface PricingPlan {
@@ -16,6 +17,7 @@ interface PricingPlan {
 const PricingSection = () => {
     const [isHydrated, setIsHydrated] = useState(false);
     const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
+    const router = useRouter();
 
     useEffect(() => {
         setIsHydrated(true);
@@ -106,8 +108,8 @@ const PricingSection = () => {
                                 <button
                                     onClick={() => setBillingCycle('monthly')}
                                     className={`px-4 py-2 rounded-md font-body font-semibold text-sm transition-all duration-250 ${billingCycle === 'monthly'
-                                            ? 'bg-primary text-primary-foreground'
-                                            : 'text-muted-foreground hover:text-foreground'
+                                        ? 'bg-primary text-primary-foreground'
+                                        : 'text-muted-foreground hover:text-foreground'
                                         }`}
                                 >
                                     Monthly
@@ -115,8 +117,8 @@ const PricingSection = () => {
                                 <button
                                     onClick={() => setBillingCycle('yearly')}
                                     className={`px-4 py-2 rounded-md font-body font-semibold text-sm transition-all duration-250 ${billingCycle === 'yearly'
-                                            ? 'bg-primary text-primary-foreground'
-                                            : 'text-muted-foreground hover:text-foreground'
+                                        ? 'bg-primary text-primary-foreground'
+                                        : 'text-muted-foreground hover:text-foreground'
                                         }`}
                                 >
                                     Yearly <span className="text-xs font-light opacity-80">(Save 20%)</span>
@@ -130,8 +132,8 @@ const PricingSection = () => {
                             <div
                                 key={index}
                                 className={`relative bg-card border rounded-lg p-8 space-y-6 transition-all duration-250 hover:scale-105 ${plan.highlighted
-                                        ? 'border-primary shadow-lg shadow-primary/10'
-                                        : 'border-border hover:border-primary/50'
+                                    ? 'border-primary shadow-lg shadow-primary/10'
+                                    : 'border-border hover:border-primary/50'
                                     }`}
                             >
                                 {plan.highlighted && (
@@ -167,9 +169,10 @@ const PricingSection = () => {
                                 </ul>
 
                                 <button
+                                    onClick={() => router.push('/sign-in')}
                                     className={`w-full py-3 rounded-lg font-body font-semibold text-base transition-all duration-250 ${plan.highlighted
-                                            ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                                            : 'bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground'
+                                        ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                                        : 'bg-transparent border border-primary text-primary hover:bg-primary hover:text-primary-foreground'
                                         }`}
                                 >
                                     {plan.buttonText}

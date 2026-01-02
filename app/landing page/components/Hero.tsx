@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Icon from '@/components/ui/AppIcon';
 import AppImage from '@/components/ui/AppImage';
+import { useRouter } from 'next/navigation';
 
 interface HeroProps {
     onStartTrial?: () => void;
@@ -13,6 +14,7 @@ const HeroSection = ({ onStartTrial, onViewDemo }: HeroProps) => {
     const [isHydrated, setIsHydrated] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const router = useRouter();
 
     useEffect(() => {
         setIsHydrated(true);
@@ -86,7 +88,7 @@ const HeroSection = ({ onStartTrial, onViewDemo }: HeroProps) => {
 
                     <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-8 animate-fade-in-up delay-300">
                         <button
-                            onClick={onStartTrial}
+                            onClick={() => router.push('/sign-in')}
                             className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg font-body font-bold text-base hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] hover:scale-105 transition-all duration-250 flex items-center justify-center space-x-2"
                         >
                             <span>Start Free Trial</span>

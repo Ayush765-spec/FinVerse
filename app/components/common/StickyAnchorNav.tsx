@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Icon from '@/components/ui/AppIcon';
 import AppImage from '@/components/ui/AppImage';
 
@@ -21,6 +22,7 @@ const StickyAnchorNav = ({ isCollapsed = false }: StickyAnchorNavProps) => {
     const [activeSection, setActiveSection] = useState('');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const router = useRouter();
 
     const navItems: NavItem[] = [
         {
@@ -127,7 +129,10 @@ const StickyAnchorNav = ({ isCollapsed = false }: StickyAnchorNavProps) => {
                                 </button>
                             ))}
                             <div className="pl-4 border-l border-border ml-2">
-                                <button className="px-5 py-2 bg-accent text-accent-foreground rounded-lg font-bold text-sm hover:shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-all duration-300">
+                                <button
+                                    onClick={() => router.push('/sign-in')}
+                                    className="px-5 py-2 bg-accent text-accent-foreground rounded-lg font-bold text-sm hover:shadow-[0_0_15px_rgba(234,179,8,0.4)] transition-all duration-300"
+                                >
                                     Get Started
                                 </button>
                             </div>
@@ -167,7 +172,10 @@ const StickyAnchorNav = ({ isCollapsed = false }: StickyAnchorNavProps) => {
                                     </div>
                                 </button>
                             ))}
-                            <button className="mt-2 w-full py-3 bg-accent text-accent-foreground rounded-lg font-bold">
+                            <button
+                                onClick={() => router.push('/sign-in')}
+                                className="mt-2 w-full py-3 bg-accent text-accent-foreground rounded-lg font-bold"
+                            >
                                 Get Started
                             </button>
                         </div>
