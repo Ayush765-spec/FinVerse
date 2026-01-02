@@ -19,18 +19,29 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
 
             </div>
 
-            <div className="auth-right-section">
-                <blockquote className="auth-blockquote">
-                    &#34;FinVerse has completely transformed how I track my portfolio. The AI insights and real-time alerts help me make smarter investment decisions ahead of the market.&#34;
-                </blockquote>
-                <cite className="auth-testimonial-author">
-                    - Alex Morgan, Date Trader
-                </cite>
-                <div className="auth-dashboard-preview">
-                    <Image src="/dashboard-preview.png" alt="FinVerse dashboard" width={1000} height={1000} className="rounded-xl object-contain" />
+            <div className="auth-right-section relative overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/auth-bg.png"
+                        alt="Stock Market Background"
+                        fill
+                        className="object-cover opacity-60 blur-[2px]"
+                        quality={100}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+                </div>
+
+                <div className="relative z-10 flex flex-col h-full justify-center p-12">
+                    <blockquote className="auth-blockquote">
+                        &#34;FinVerse has completely transformed how I track my portfolio. The AI insights and real-time alerts help me make smarter investment decisions ahead of the market.&#34;
+                    </blockquote>
+                    <cite className="auth-testimonial-author">
+                        - Alex Morgan, Date Trader
+                    </cite>
                 </div>
             </div>
         </div>
-    )
+    );
 }
-export default AuthLayout
+
+export default AuthLayout;

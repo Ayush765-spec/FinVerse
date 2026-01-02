@@ -67,8 +67,50 @@ const AIOverview = () => {
                 )}
 
                 {!loading && !error && (
-                    <div className="whitespace-pre-line text-sm">
-                        {overview}
+                    <div className="space-y-4">
+                        {overview.split('\n').map((line, index) => {
+                            // Check for bold headers like **Header**
+                            const headerMatch = line.match(/^\*\*(.*?)\*\*$/) || line.match(/^\*\*(.*?)\*\*:/);
+                            if (headerMatch) {
+                                return (
+                                    <div key={index} className="flex items-start gap-2 mt-4 first:mt-0">
+                                        <div className="h-6 w-1 bg-yellow-500 rounded-full shrink-0 mt-1" />
+                                        <h3 className="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
+                                            {headerMatch[1]}
+                                        </h3>
+                                    </div>
+                                );
+                            }
+
+                            // Check for list items or bullet points
+                            if (line.trim().startsWith('-') || line.trim().match(/^\d+\./)) {
+                                return (
+                                    <div key={index} className="flex gap-3 pl-4">
+                                        <span className="text-yellow-500 mt-1.5">•</span>
+                                        <p className="text-gray-300 text-sm leading-relaxed">
+                                            {line.replace(/^[-*]|\d+\.\s*/, '').replace(/\*\*(.*?)\*\*/g, '$1')}
+                                        </p>
+                                    </div>
+                                );
+                            }
+
+                            // Regular text with inline bold support
+                            if (line.trim().length > 0) {
+                                const parts = line.split(/(\*\*.*?\*\*)/);
+                                return (
+                                    <p key={index} className="text-gray-400 text-sm leading-relaxed pl-1">
+                                        {parts.map((part, i) => {
+                                            if (part.startsWith('**') && part.endsWith('**')) {
+                                                return <span key={i} className="font-semibold text-yellow-100">{part.slice(2, -2)}</span>;
+                                            }
+                                            return part;
+                                        })}
+                                    </p>
+                                );
+                            }
+
+                            return null;
+                        })}
                     </div>
                 )}
             </div>

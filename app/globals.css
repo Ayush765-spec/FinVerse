@@ -191,7 +191,7 @@
     }
 
     .auth-right-section {
-        @apply w-full max-lg:border-t max-lg:border-gray-600 lg:w-[55%] lg:h-screen bg-gray-800 px-6 py-4 md:p-6 lg:py-12 lg:px-18 flex flex-col justify-start relative z-10;
+        @apply w-full max-lg:border-t max-lg:border-gray-600 lg:w-[55%] lg:h-screen px-6 py-4 md:p-6 lg:py-12 lg:px-18 flex flex-col justify-start relative z-10;
     }
 
     .auth-blockquote {
@@ -659,4 +659,74 @@
 
 .scrollbar-hide-default::-webkit-scrollbar-thumb:hover {
     background-color: #9095A1;
+}
+
+/* Krypt Styles */
+/* Krypt Theme - Black/Blue/White */
+.gradient-bg-welcome {
+    background-color: #000000;
+    background-image:
+        radial-gradient(at 0% 0%, hsla(220, 78%, 53%, 0.3) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(227, 66%, 44%, 0.2) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(200, 75%, 53%, 0.3) 0, transparent 50%);
+}
+
+.gradient-bg-services {
+    background-color: #000000;
+    background-image:
+        radial-gradient(at 0% 0%, hsla(220, 78%, 53%, 0.3) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(200, 75%, 53%, 0.3) 0, transparent 50%);
+}
+
+.gradient-bg-transactions {
+    background-color: #000000;
+    background-image:
+        radial-gradient(at 0% 0%, hsla(220, 78%, 53%, 0.2) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(227, 66%, 44%, 0.15) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(200, 75%, 53%, 0.2) 0, transparent 50%);
+}
+
+.gradient-bg-footer {
+    background-color: #000000;
+    background-image:
+        radial-gradient(at 0% 100%, hsla(220, 78%, 53%, 0.3) 0, transparent 53%),
+        radial-gradient(at 100% 0%, hsla(200, 75%, 53%, 0.2) 0, transparent 50%);
+}
+
+.blue-glassmorphism {
+    background: rgba(39, 51, 89, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(37, 70, 189, 0.3);
+    /* Blue border */
+}
+
+.white-glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.eth-card {
+    background-color: #2952e3;
+    /* Blue */
+    background-image:
+        radial-gradient(at 83% 67%, hsla(227, 66%, 44%, 0.7) 0, transparent 58%),
+        radial-gradient(at 67% 20%, hsla(200, 75%, 53%, 0.7) 0, transparent 59%),
+        radial-gradient(at 88% 35%, hsla(220, 78%, 53%, 0.7) 0, transparent 50%),
+        radial-gradient(at 31% 91%, hsla(227, 66%, 44%, 0.7) 0, transparent 52%),
+        radial-gradient(at 27% 71%, hsla(200, 75%, 53%, 0.7) 0, transparent 49%),
+        radial-gradient(at 74% 89%, hsla(220, 78%, 53%, 0.7) 0, transparent 51%),
+        radial-gradient(at 53% 75%, hsla(227, 66%, 44%, 0.7) 0, transparent 45%);
+}
+
+.text-gradient {
+    background-color: #fff;
+    background-image: linear-gradient(90deg, #2952e3 0%, #ffffff 50%, #37c7da 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
